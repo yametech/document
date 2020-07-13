@@ -31,7 +31,7 @@ module.exports = {
           title: "进阶",
           collapsable: false,
           children: [
-            { title: "网络", path: "/guide/advanced/network/" },
+            { title: "网络模块", path: "/guide/advanced/network/" },
             { title: "工作负载", path: "/guide/advanced/workload/" },
           ],
         },
