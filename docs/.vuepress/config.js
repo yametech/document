@@ -7,7 +7,7 @@ module.exports = {
             href: `/book.png`
         }]
     ],
-    dest: './docs/.vuepress/dist',
+    dest: './dist',
     ga: '',
     evergreen: true,
     sidebarDepth: 2,
