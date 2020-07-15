@@ -9,12 +9,12 @@ module.exports = {
         href: `/book.png`,
       },
     ],
+
   ],
-  dest: "./docs/.vuepress/dist",
+  dest: "./dist",
   ga: "",
   evergreen: true,
   sidebarDepth: 2,
-
   themeConfig: {
     sidebar: {
       "/guide/": [
@@ -24,14 +24,14 @@ module.exports = {
           children: [
             { title: "简介", path: "/guide/basic/brief/" },
             { title: "持续集成", path: "/guide/basic/ci/" },
-            { title: "简单的CD", path: "/guide/basic/cd/" },
+            { title: "应用部署", path: "/guide/basic/cd/" },
           ],
         },
         {
           title: "进阶",
           collapsable: false,
           children: [
-            { title: "网络", path: "/guide/advanced/network/" },
+            { title: "网络模块", path: "/guide/advanced/network/" },
             { title: "工作负载", path: "/guide/advanced/workload/" },
           ],
         },

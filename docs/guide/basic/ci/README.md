@@ -57,7 +57,7 @@ build-app  build-frontend
 
 ![pipeline-show](../ci/img/pipeline/pipeline-show.png)
 
-> 创建完该 pipeline 后点击 pipeline 的条目，就能产生一个这个 pipeline 的 dia-log，自己绘制自己的流水线。
+> 创建完该 pipeline 后点击 pipeline 的条目，就能产生一个这个 pipeline 的 dialog，自己绘制自己的流水线。
 
 ![pipeline-task-1](../ci/img/pipeline/pipeline-task-1.png)
 
@@ -65,11 +65,11 @@ build-app  build-frontend
 
 ![pipeline-task-2](../ci/img/pipeline/pipeline-task-2.png)
 
-> 前面说到的，一个任务的可以有输入和输出，那么输入就是一个 iamge，此处名称为`fuxi-image`。为 image 类型的资源输出。
+> 前面说到的，一个任务的可以有输入和输出，那么输入就是一个 image，此处名称为`fuxi-image`。为 image 类型的资源输出。
 
 ![pipeline-task-3](../ci/img/pipeline/pipeline-task-3.png)
 
-> 此处配置我们的 task 里面的 Step，Step 的定义是你想做什么事情，怎么去做，比如这里用的是名称随便起，但是一个 task 里面的 step 名称不能重复即可，Step 里面有个 iage 的名称`yametech/excutor:v0.17.1`,表示用的这个 runtime 构建你的代码。根据 dockerfile 去构建，并且推送到相应的镜像 register。
+> 此处配置我们的 task 里面的 Step，Step 的定义是你想做什么事情，怎么去做，比如这里用的是名称随便起，但是一个 task 里面的 step 名称不能重复即可，Step 里面有个 image 的名称`yametech/excutor:v0.17.1`,表示用的这个 runtime 构建你的代码。根据 dockerfile 去构建，并且推送到相应的镜像 register。
 
 ![pipeline-task-4](../ci/img/pipeline/pipeline-task-4.png)
 
@@ -81,7 +81,7 @@ build-app  build-frontend
 
 ![pipeline-dialog-1](../ci/img/pipeline/pipeline-dialog-1.png)
 
-> 点击`save`的时候需要填写一些 pipelien 的参数，你需要定义 pipeline 的参数，把它传入 task 这个资源里面(因为 task 里面你要求传入 2 个 resource 的参数，一个是 input 和 output 的参数)，所以在 pipeline 也声明传入此 task 函数。
+> 点击`save`的时候需要填写一些 pipeline 的参数，你需要定义 pipeline 的参数，把它传入 task 这个资源里面(因为 task 里面你要求传入 2 个 resource 的参数，一个是 input 和 output 的参数)，所以在 pipeline 也声明传入此 task 函数。
 
 ![pipeline-dialog-2](../ci/img/pipeline/pipeline-dialog-2.png)
 
@@ -118,7 +118,7 @@ func main(){
 
 > 保存后的状态。
 
-## PipelienRun 资源简介
+## PipelineRun 资源简介
 
 > 一个 pipelierun 允许你指定并执行你定义的 pipeline，并且按照你 pipeline 定义的任务按顺序执行。
 
@@ -130,7 +130,7 @@ func main(){
 
 ![pipeline-run-params](../ci/img/pipeline/pipeline-run-params.png)
 
-> 这里的 pipeline-run 就像我上面说的顶级函数。把 pipelien 的实例传入 pipeline 这个资源。
+> 这里的 pipeline-run 就像我上面说的顶级函数。把 pipeline 的实例传入 pipeline 这个资源。
 
 ![pipeline-run-status](../ci/img/pipeline/pipeline-run-status.png)
 
