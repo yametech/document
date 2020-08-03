@@ -1,6 +1,6 @@
 ---
 home: true
-heroText: Compass 
+heroText: Compass 文档教程
 heroImage: /book.png
 actionText: 快速上手 →
 actionLink: /guide/
