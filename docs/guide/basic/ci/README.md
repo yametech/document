@@ -141,3 +141,26 @@ func main(){
 > 点击当前的 node。即可展示当前的日志。
 
 Author:[withlin](https://github.com/withlin)
+
+## Pipeline 动态传参
+
+- 下面的例子是展示如何通过动态传参，在run的时候传入version字段
+- 在配置Task的Dialog里面，新增参数 task_version, 相当于函数的参数，可以选择赋予默认值。
+
+![image](../ci/img/pipeline_params/task_add_params.png)
+
+- 在Step里面使用这个参数
+
+![image](../ci/img/pipeline_params/task_apply_params.png)
+
+- 在保存pipeline的时候，可以声明一个参数version，并动态赋值给Task里面的参数 task_version
+
+![image](../ci/img/pipeline_params/pipeline_params.png)
+
+- 赋值给Task里面的参数 task_version  写法 $(params.version)
+
+![image](../ci/img/pipeline_params/pipeline_apply_params.png)
+
+- 每次启动pipeline的时候，就可以动态传入版本号咯
+
+![image](../ci/img/pipeline_params/input_params.png)

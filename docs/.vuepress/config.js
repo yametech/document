@@ -19,7 +19,14 @@ module.exports = {
     sidebar: {
       "/guide/": [
         {
-          title: "指南",
+          title: "Kubernetes基础教程",
+          collapsable: false,
+          children: [
+            { title: "简介", path: "/guide/k8s/" },
+          ],
+        },
+        {
+          title: "使用指南",
           collapsable: false,
           children: [
             { title: "简介", path: "/guide/basic/brief/" },
@@ -28,11 +35,10 @@ module.exports = {
           ],
         },
         {
-          title: "进阶",
+          title: "进阶教程",
           collapsable: false,
           children: [
-            { title: "网络模块", path: "/guide/advanced/network/" },
-            { title: "工作负载", path: "/guide/advanced/workload/" },
+            { title: "滚动更新", path: "/guide/advanced/rolling/" },
           ],
         },
       ],
