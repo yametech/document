@@ -19,14 +19,16 @@ module.exports = {
     sidebar: {
       "/guide/": [
         {
-          title: "Kubernetes基础教程",
+          title: "Kubernetes基础知识",
           collapsable: false,
           children: [
-            { title: "简介", path: "/guide/k8s/" },
+            { title: "大纲", path: "/guide/k8s/" },
+            { title: "简介", path: "/guide/k8s/brief/" },
+            { title: "基本概念", path: "/guide/k8s/detail/" },
           ],
         },
         {
-          title: "使用指南",
+          title: "Compass使用指南",
           collapsable: false,
           children: [
             { title: "简介", path: "/guide/basic/brief/" },
@@ -35,7 +37,7 @@ module.exports = {
           ],
         },
         {
-          title: "进阶教程",
+          title: "Compass进阶教程",
           collapsable: false,
           children: [
             { title: "滚动更新", path: "/guide/advanced/rolling/" },
