@@ -28,7 +28,7 @@
 
 ::: tip
 
-​	Image From镜像来源，public是共有镜像地址，如DockerHub
+​	Image From镜像来源，public是共有镜像地址，如DockerHub，镜像拉取策略最好选择always，方便更新应用。
 
 :::
 
