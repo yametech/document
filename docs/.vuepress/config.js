@@ -40,7 +40,7 @@ module.exports = {
           title: "Compass进阶教程",
           collapsable: false,
           children: [
-            { title: "滚动更新", path: "/guide/advanced/rolling/" },
+            { title: "更新应用", path: "/guide/advanced/update/" },
           ],
         },
       ],
