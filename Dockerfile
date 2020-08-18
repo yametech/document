@@ -1,4 +1,4 @@
-FROM node:14.3.0 AS builder
+FROM node:14.8.0 AS builder
 WORKDIR /app
 RUN npm install -g cnpm --registry=https://registry.npm.taobao.org
 RUN alias cnpm="npm --registry=https://registry.npm.taobao.org \

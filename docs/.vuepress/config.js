@@ -41,6 +41,7 @@ module.exports = {
           collapsable: false,
           children: [
             { title: "更新应用", path: "/guide/advanced/update/" },
+            { title: "Git Hook", path: "/guide/advanced/webhook/" },
           ],
         },
       ],
