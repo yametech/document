@@ -20,7 +20,7 @@
 
 ![pipeline-resource-git](../ci/img/pipeline-resource/pipeline-resource-git.png)
 
-创建名称为`fuxi`的资源并且类型是 git 类型的。params 是一个 key 与 value 的。上图是 name 是`url`,value 是 harbor 的地址`https://github.com.cnpmjs.org/yametech/fuxi`。默认是拉去 master 的代码，如果你要指定分支构建你就得需要增加一个 param 了，name 一定`revision` ,value 是`dev`或者 `master`,这个 value 就是你的分支名称<br>
+创建名称为`fuxi`的资源并且类型是 git 类型的。params 是一个 key 与 value 的。上图是 name 是`url`,value 是 harbor 的地址`https://github.com.cnpmjs.org/yametech/fuxi`。默认是拉取 master 的代码，如果你要指定分支构建你就得需要增加一个 param 了，name 一定`revision` ,value 是`dev`或者 `master`,这个 value 就是你的分支名称<br>
 
 ## Task 资源简介
 
@@ -47,7 +47,7 @@ build-app  build-frontend
 
 ```
 
-> 为啥会有并行 task？就用上图的说以下，比如一个大项目，有些开发的同学，就会有在一个大 repo 里面放自己的前端代码和后台代码，比如用 frontend 和 backend 这两个文件夹，这样子在跑 pipeline 的时候，用户自己需要跑前端和后端的代码的 ci，都验证是否有文件没提交的代码文件或者错误的代码文件。
+> 为啥会有并行 task？就用上图来举例，比如一个大项目，有些开发的同学，就会有在一个大 repo 里面放自己的前端代码和后台代码，比如用 frontend 和 backend 这两个文件夹，这样子在跑 pipeline 的时候，用户自己需要跑前端和后端的代码的 ci，都验证是否有文件没提交的代码文件或者错误的代码文件。
 
 ## Pipeline 资源的创建
 
