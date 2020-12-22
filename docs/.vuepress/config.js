@@ -33,6 +33,7 @@ module.exports = {
           children: [
             { title: "简介", path: "/guide/basic/brief/" },
             { title: "持续集成", path: "/guide/basic/ci/" },
+            { title: "持续集成最佳实践", path: "/guide/basic/best-practices/" },
             { title: "应用部署", path: "/guide/basic/cd/" },
           ],
         },
