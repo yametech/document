@@ -38,7 +38,7 @@ module.exports = {
           ],
         },
         {
-          title: "Compass进阶教程",
+          title: "Compass进阶教程11",
           collapsable: false,
           children: [
             { title: "更新应用", path: "/guide/advanced/update/" },
