@@ -1,19 +1,30 @@
-# Compass 简介
+# 命名空间
 
 ::: tip
 
-Compass后台是管理应用节点（node）和物理节点（服务器）的操作后台。涉及应用、网络、存储、域名、租户等多功能管理平台。
+Namespace 是对一组资源和对象的抽象集合，比如可以用来将系统内部的对象划分为不同的项目组或用户组。常见的 pod, service, replication controller 和 deployment 等都是属于某一个 namespace 的（默认是 default），而 node, persistent volume，namespace 等资源则不属于任何 namespace。
+Namespace 常用来隔离不同的用户，比如 Kubernetes 自带的服务一般运行在 kube-system namespace 中。
 
 :::
 
-### 功能
+### Namespace 操作
+kubectl 可以通过 --namespace 或者 -n 选项指定 namespace。如果不指定，默认为 default。查看操作下, 也可以通过设置 --all-namespace=true 来查看所有 namespace 下的资源。
 
-- 多租户管理：贴合公司的多租户管理，支持多租户之间的资源隔离
-- 权限管理： 灵活的角色管理能力，配置细腻的操作权限和资源权限
-- 应用编排： 应用管理多服务的生命周期，多环境快速部署业务，并且支持多机房的发布，原地升级应用，蓝绿发布，金丝雀发布，分组发布等
-- 网络管理： 支持针对租户划分网络，QOS，子网的划分,应用硬件的负载均衡等
-- 持续集成： 实现代码构建，镜像的构建，服务部署等自动化
-- 监控： 集群，节点，应用的各类指标的监控
-- 服务管理： 支持多种类型容器化服务高效部署，动态伸缩，实时运维监控
-- 动态注入： 支持在业务容器前后注入配置或者基础容器
-- WebShell： 支持用户通过 webshell 的方式进入自己的业务容器
+#### 查询
+kubectl get namespaces，注意：namespace 包含两种状态 "Active" 和 "Terminating"。在 namespace 删除过程中，namespace 状态被设置成 "Terminating"。
+
+#### 创建
+- 命令行直接创建
+kubectl create namespace new-namespace
+- 通过文件创建
+kubectl create -f ./my-namespace.yaml
+注意：命名空间名称满足正则表达式 [a-z0-9]([-a-z0-9]*[a-z0-9])?, 最大长度为 63 位。
+
+#### 删除
+kubectl delete namespaces new-namespace
+注意：
+- 删除一个 namespace 会自动删除所有属于该 namespace 的资源。
+- default 和 kube-system 命名空间不可删除。
+- PersistentVolume 是不属于任何 namespace 的，但 PersistentVolumeClaim 是属于某个特定 namespace 的。
+- Event 是否属于 namespace 取决于产生 event 的对象。
+- v1.7 版本增加了 kube-public 命名空间，该命名空间用来存放公共的信息，一般以 ConfigMap 的形式存放。

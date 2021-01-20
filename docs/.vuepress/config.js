@@ -20,7 +20,7 @@ module.exports = {
       "/guide/": [
         {
           title: "Kubernetes基础知识",
-          collapsable: false,
+          collapsable: true,
           children: [
             { title: "大纲", path: "/guide/k8s/" },
             { title: "简介", path: "/guide/k8s/brief/" },
@@ -29,7 +29,7 @@ module.exports = {
         },
         {
           title: "Compass使用指南",
-          collapsable: false,
+          collapsable: true,
           children: [
             { title: "简介", path: "/guide/basic/brief/" },
             { title: "持续集成", path: "/guide/basic/ci/" },
@@ -39,7 +39,7 @@ module.exports = {
         },
         {
           title: "Compass进阶教程",
-          collapsable: false,
+          collapsable: true,
           children: [
             { title: "更新应用", path: "/guide/advanced/update/" },
             { title: "模板商店", path: "/guide/advanced/store/" },
@@ -48,7 +48,7 @@ module.exports = {
         },
         {
           title: "Compass说明文档",
-          collapsable: false,
+          collapsable: true,
           children: [
             { title: "简介", path: "/guide/instruction/brief/" },
             { title: "集群", path: "/guide/instruction/cluster/" },

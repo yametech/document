@@ -1,19 +1,29 @@
-# Compass 简介
+# 访问控制
 
-::: tip
 
-Compass后台是管理应用节点（node）和物理节点（服务器）的操作后台。涉及应用、网络、存储、域名、租户等多功能管理平台。
 
-:::
+### Service Accounts
+Service account 是为了方便 Pod 里面的进程调用 Kubernetes API 或其他外部服务而设计的。
+它与 User account 不同：
+- User account 是为人设计的，而 service account 则是为 Pod 中的进程调用 Kubernetes API 而设计。
+- User account 是跨 namespace 的，而 service account 则是仅局限它所在的 namespace。
+- 每个 namespace 都会自动创建一个 default service account。
+- Token controller 检测 service account 的创建，并为它们创建 secret。
+- 开启 ServiceAccount Admission Controller 后:
+- 每个 Pod 在创建后都会自动设置 spec.serviceAccountName 为 default（除非指定了其他 ServiceAccout）。
+- 验证 Pod 引用的 service account 已经存在，否则拒绝创建。
+- 如果 Pod 没有指定 ImagePullSecrets，则把 service account 的 ImagePullSecrets 加到 Pod 中。
+- 每个 container 启动后都会挂载该 service account 的 token 和 ca.crt 到 /var/run/secrets/kubernetes.io/serviceaccount/。
 
-### 功能
+### Roles
+Role：角色,它其实是一组规则,定义了一组对 Kubernetes API 对象的操作权限。
 
-- 多租户管理：贴合公司的多租户管理，支持多租户之间的资源隔离
-- 权限管理： 灵活的角色管理能力，配置细腻的操作权限和资源权限
-- 应用编排： 应用管理多服务的生命周期，多环境快速部署业务，并且支持多机房的发布，原地升级应用，蓝绿发布，金丝雀发布，分组发布等
-- 网络管理： 支持针对租户划分网络，QOS，子网的划分,应用硬件的负载均衡等
-- 持续集成： 实现代码构建，镜像的构建，服务部署等自动化
-- 监控： 集群，节点，应用的各类指标的监控
-- 服务管理： 支持多种类型容器化服务高效部署，动态伸缩，实时运维监控
-- 动态注入： 支持在业务容器前后注入配置或者基础容器
-- WebShell： 支持用户通过 webshell 的方式进入自己的业务容器
+### Role Bindings
+角色绑定，定义了“被作用者”和“角色”的绑定关系。
+
+### Pod Security Policies
+Pod Security Policies（PSP）是集群级的 Pod 安全策略，自动为集群内的 Pod 和 Volume 设置 Security Context。
+使用 PSP 需要 API Server 开启 extensions/v1beta1/podsecuritypolicy，并且配置 PodSecurityPolicy admission 控制器。
+说明：
+
+![Dingtalk_20210113140540.jpg](../access/images/Dingtalk_20210113140540.jpg)
